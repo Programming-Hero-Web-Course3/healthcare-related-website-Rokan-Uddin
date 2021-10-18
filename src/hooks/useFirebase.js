@@ -1,5 +1,6 @@
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import initializeAuthentication from "../Firebase/Firebase.init";
 
 initializeAuthentication()
@@ -8,15 +9,20 @@ const useFirebase = () => {
     const [user,setUser]= useState({});
     const [isLoading,setIsLoading]= useState(true);
     const auth = getAuth();
+    const history = useHistory();
 
-    const signInUsingGoogle= () => {
+    const signInUsingGoogle= (redirect_uri) => {
         setIsLoading(true)
         const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth,googleProvider)
         .then(result=> {
             setUser(result.user);
         })
-        .finally(()=>setIsLoading(false))
+        .finally(()=>{
+            // console.log(redirect_uri);
+            // history.push('/home');
+            setIsLoading(false)}
+        )
     }
     useEffect(()=>{
        const unsubscribed= onAuthStateChanged(auth, (user)=>{
