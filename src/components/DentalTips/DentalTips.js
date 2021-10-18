@@ -9,7 +9,7 @@ const DentalTips = () => {
         .then(data=>setTips(data))
     },[])
     return (
-        <div className="row">
+        <div className="row g-4">
             {
              tips.map(tip=> <Tips
              key={tip.id}

@@ -10,11 +10,10 @@ const Login = () => {
     const redirect_uri=  location.state?.from || '/home';
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        signInUsingEmailPassword(data.email,data.password);
+        signInUsingEmailPassword(data.email,data.password,history,redirect_uri);
     };
     const handleGoogleSignIn=() =>{
-        signInUsingGoogle(redirect_uri);
-        // history.push('/home')
+        signInUsingGoogle(history,redirect_uri);
     }
     return (
         <div>
@@ -32,7 +31,7 @@ const Login = () => {
                 <p>New User?</p>
                 <Link to='/register'>Register</Link>
                 <div>--------or-------</div>
-                <button onClick={handleGoogleSignIn}  className="btn-regular" >Sign in with Google</button>
+                <button onClick={handleGoogleSignIn}  className="login-btn" ><i className="fab fa-google text-success"></i> Sign in with Google</button>
             </div>
         </div>
     );

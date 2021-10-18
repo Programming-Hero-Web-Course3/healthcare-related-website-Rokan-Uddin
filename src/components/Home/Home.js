@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Banner from '../Banner/Banner';
 import DentalTips from '../DentalTips/DentalTips';
-import Doctors from '../Doctors/Doctors';
 import Service from '../Service/Service';
+import WellcomeContainer from '../WellcomeContainer/WellcomeContainer';
 const Home = () => {
     const [services,setServices]=useState([]);
     useEffect(()=>{
@@ -15,8 +15,14 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <h1 id="services" className="text-center">Our Services</h1>
-            <div className="container">
+            <h1 className="text-center my-5">Wellcome to Chittagong Dental Care</h1>
+            <p className="container text-center">Located in Nasirabad,Chittagong, the Dental Hospital provides a comprehensive range of 
+                specialized dental care services, all under one roof in a new, state-of-the-art facility. 
+                Our priority is to provide the highest standards of evidence-based dental care.</p>
+            <WellcomeContainer></WellcomeContainer>
+            <hr className="container mt-5" />
+            <h1 id="services" className="text-center my-5">Our Services</h1>
+            <div className="container mb-5">
                 <div className="row g-4">
                 {
                 services.map((service)=><Service
@@ -26,12 +32,9 @@ const Home = () => {
             }
                 </div>
             </div>
-            <h2 className="text-center mt-5">Our Doctors</h2>
-            <div id="doctors" className="container">
-               <Doctors></Doctors>
-            </div>
-            <h2 id="tips" className="my-5">11 important tips for healthy teeth </h2>
-            <div className="container">
+            
+            <span id="tips" className="py-2 fs-1 border-bottom border-3">Important tips for healthy teeth</span>
+            <div className="container my-5">
                 <DentalTips></DentalTips>
             </div>
         </div>

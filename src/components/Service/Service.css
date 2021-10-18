@@ -1,4 +1,5 @@
 .service {
+    height: 300px;
     border: 1px solid gray;
     border-radius: 20px;
 }
@@ -6,3 +7,36 @@
     height: 200px;
     width: 200px;
 }
+.details-btn {
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	background-color:#599bb3;
+	border-radius:9px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:18px;
+	font-weight:bold;
+	font-style:italic;
+	padding:10px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+}
+.details-btn:hover {
+	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#408c99;
+}
+.details-btn:active {
+	position:relative;
+	top:1px;
+}
+/* responsive for small device  */
+@media only screen and (max-width: 768px) {
+	.service {
+		height: 450px;
+	}
+	.details-btn {
+		margin-bottom: 15px;
+	}
+  }

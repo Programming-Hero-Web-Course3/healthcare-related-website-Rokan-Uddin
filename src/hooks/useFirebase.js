@@ -1,6 +1,5 @@
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import initializeAuthentication from "../Firebase/Firebase.init";
 
 initializeAuthentication()
@@ -9,9 +8,8 @@ const useFirebase = () => {
     const [user,setUser]= useState({});
     const [isLoading,setIsLoading]= useState(true);
     const auth = getAuth();
-    const history = useHistory();
 
-    const signInUsingGoogle= (redirect_uri) => {
+    const signInUsingGoogle= (history,redirect_uri) => {
         setIsLoading(true)
         const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth,googleProvider)
@@ -19,10 +17,20 @@ const useFirebase = () => {
             setUser(result.user);
         })
         .finally(()=>{
-            // console.log(redirect_uri);
-            // history.push('/home');
+            history.push(redirect_uri);
             setIsLoading(false)}
         )
+    }
+    const signInUsingEmailPassword= (email,password,history,redirect_uri)=>{
+        setIsLoading(true)
+        signInWithEmailAndPassword(auth,email,password)
+        .then(result=>{
+            setUser(result.user);
+        })
+        .finally(()=>{
+            history.push(redirect_uri);
+            setIsLoading(false);
+        })
     }
     useEffect(()=>{
        const unsubscribed= onAuthStateChanged(auth, (user)=>{
@@ -42,13 +50,21 @@ const useFirebase = () => {
         .then(()=>{})
         .finally(()=>setIsLoading(false))
     }
-    const createUser=(email,password)=>{
-        createUserWithEmailAndPassword(auth,email,password)
-        .then(result=>console.log(result.user))
+    const updateUser=(name)=>{
+        updateProfile(auth.currentUser,{displayName:{name}})
+        .then(res=>{
+            console.log(res.user)
+        })
     }
-    const signInUsingEmailPassword= (email,password)=>{
-        signInWithEmailAndPassword(auth,email,password)
-        .then(result=>console.log(result.user))
+    const createUser=(email,password,name)=>{
+        createUserWithEmailAndPassword(auth,email,password)
+        .then(result=>{
+            
+        })
+        .finally(()=>{
+            // updateUser(name);
+        })
+
     }
     return {
         user,

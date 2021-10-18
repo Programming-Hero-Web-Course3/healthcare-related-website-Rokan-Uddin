@@ -26,7 +26,9 @@ const doctors=[
 
 const Doctors = () => {
     return (
-
+        <div id="doctors" className="container my-5">
+            <h1 className="text-center">Our Doctors</h1>
+            <hr />
             <div className="row g-4">
             {
                 doctors.map(doctor=> <Doctor
@@ -35,6 +37,8 @@ const Doctors = () => {
                 ></Doctor> )
             }
         </div>
+     </div>
+
     );
 };
 

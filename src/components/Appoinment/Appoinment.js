@@ -2,9 +2,12 @@ import React from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 
 const Appoinment = () => {
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+    }
     return (
         <div className="container">
-            <h1>Request an Appointment</h1>
+            <h1 className="my-5" >Request an Appointment</h1>
             <hr />
             <h5>Please use the form below to request a dental appointment. We will contact you soon to confirm the availability.</h5>
             <Form>
@@ -33,11 +36,6 @@ const Appoinment = () => {
                     <option>Female</option>
                 </Form.Select>
                 </Form.Group>
-
-                <Form.Group as={Col} controlId="formGridZip">
-                <Form.Label>Blood Group</Form.Label>
-                <Form.Control />
-                </Form.Group>
             </Row>
 
             <Row className="mb-3">
@@ -59,19 +57,9 @@ const Appoinment = () => {
                 </Form.Select>
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formGridZip">
-                <Form.Label>Zip</Form.Label>
-                <Form.Control />
-                </Form.Group>
+
             </Row>
             <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridState">
-                <Form.Label>Are you in pain? / Do you have an urgent concern?</Form.Label>
-                <Form.Select defaultValue="No">
-                    <option>No</option>
-                    <option>Yes</option>
-                </Form.Select>
-                </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridState">
                 <Form.Label>Is this a Regular Checkup?</Form.Label>
@@ -92,7 +80,7 @@ const Appoinment = () => {
                 </Form.Group>
             </Row>
 
-            <Button variant="primary" type="submit">
+            <Button onClick={handleSubmit} variant="primary" type="submit">
                 Submit
             </Button>
             </Form>
