@@ -22,10 +22,10 @@ const Login = () => {
               <div className="container d-flex justify-content-center align-items-center mt-5">
                 <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
                     <input placeholder="Email" {...register("email", {required:true})} />
-                    <input type="password" placeholder="Password" {...register("password", { required: true })} />
                     {errors.email &&  <span className="error">Email is required</span>}
+                    <input type="password" placeholder="Password" {...register("password", { required: true })} />
                     {errors.password &&  <span className="error">Password is required</span>}
-                    {error && <span className="error">{error}</span>}
+                    {error && !errors.email && !errors.password && <span className="error">{error}</span>}
                     <input type="submit" />
                 </form>
             </div>
