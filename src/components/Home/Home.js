@@ -23,8 +23,8 @@ const Home = () => {
 
             <WellcomeContainer></WellcomeContainer>
 
-            <hr className="container mt-5" />
-            <h1 id="services" className="text-center my-5">Our Services</h1>
+            <hr  id="services" className="container my-5" />
+            <h1 className="text-center my-5">Our Services</h1>
             <div className="container mb-5">
                 <div className="row g-4">
                     {
@@ -36,7 +36,7 @@ const Home = () => {
                 </div>
             </div>
             
-            <span id="tips" className="py-2 fs-1 border-bottom border-3">Important tips for healthy teeth</span>
+            <span id="tips" className="py-2 fs-1 border-bottom border-3 mt-5 pt-5">Important tips for healthy teeth</span>
             <div className="container my-5">
                 <DentalTips></DentalTips>
             </div>

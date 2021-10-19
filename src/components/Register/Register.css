@@ -2,7 +2,21 @@
     color: red;
 }
 .register-form input{
+    width: 300px;
     display: block;
     margin: 10px;
     padding: 5px;
+    border-radius: 10px;
+}
+.submit-btn {
+    background-color: blanchedalmond;
+    width: 150px;
+}
+.logo{
+    width: 30px;
+    width: 30px;
+}
+.google-btn{
+    border-radius: 10px;
+    border: 2px solid gray;
 }

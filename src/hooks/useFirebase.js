@@ -7,6 +7,7 @@ initializeAuthentication()
 const useFirebase = () => {
     const [user,setUser]= useState({});
     const [isLoading,setIsLoading]= useState(true);
+    const [error,setError]=useState('');
     const auth = getAuth();
     // login,register using google account 
     const signInUsingGoogle= (history,redirect_uri) => {
@@ -27,9 +28,13 @@ const useFirebase = () => {
         signInWithEmailAndPassword(auth,email,password)
         .then(result=>{
             setUser(result.user);
+            history.push(redirect_uri);
+        })
+        .catch(err=>{
+            console.log(err.message);
+            setError(err.message);
         })
         .finally(()=>{
-            history.push(redirect_uri);
             setIsLoading(false);
         })
     }
@@ -72,6 +77,7 @@ const useFirebase = () => {
     }
     return {
         user,
+        error,
         signInUsingGoogle,
         logOut,
         isLoading,

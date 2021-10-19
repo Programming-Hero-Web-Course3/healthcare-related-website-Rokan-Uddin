@@ -4,7 +4,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Login = () => {
-    const {signInUsingGoogle,signInUsingEmailPassword}= useAuth();
+    const {signInUsingGoogle,signInUsingEmailPassword,error}= useAuth();
     const location = useLocation();
     const history = useHistory()
     const redirect_uri=  location.state?.from || '/home';
@@ -18,21 +18,25 @@ const Login = () => {
     }
     return (
         <div className="mb-5">
+            <h1 className="mt-3">Login Form</h1>
               <div className="container d-flex justify-content-center align-items-center mt-5">
                 <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
                     <input placeholder="Email" {...register("email", {required:true})} />
                     <input type="password" placeholder="Password" {...register("password", { required: true })} />
                     {errors.email &&  <span className="error">This field is required</span>}
-                    
+                    {error && <span className="error">{error}</span>}
                     <input type="submit" />
                 </form>
             </div>
             <div>
-                <h2>Please Login</h2>
                 <p>New User?</p>
-                <Link to='/register'>Register</Link>
+                <Link to='/register'>   Register</Link>
                 <div>-----------------or--------------</div>
-                <button onClick={handleGoogleSignIn}  className="login-btn" ><i className="fab fa-google text-success"></i> Sign in with Google</button>
+                <button onClick={handleGoogleSignIn} className="google-btn mt-2" >
+                <img className="logo" 
+                     src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" 
+                     alt="" />
+                Continue with Google</button>
             </div>
         </div>
     );

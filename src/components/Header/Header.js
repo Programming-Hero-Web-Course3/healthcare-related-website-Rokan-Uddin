@@ -24,8 +24,8 @@ const Header = () => {
             <Nav>
             {
                 user.email ? 
-                <Button onClick={logOut} variant="light">Logout</Button> :
-                <Nav.Link as={Link} to="/login">Sign-In</Nav.Link>
+                <Button onClick={logOut} variant="light">Logout <i className="fas fa-sign-out-alt"></i> </Button> :
+                <Nav.Link as={Link} to="/login">Sign-In <i className="fas fa-sign-in-alt"></i> </Nav.Link>
             }
             </Nav>
             <Nav.Link>{user?.displayName}</Nav.Link>
