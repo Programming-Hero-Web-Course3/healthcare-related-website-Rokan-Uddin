@@ -13,14 +13,16 @@ const Home = () => {
             setServices(data)
         })
     },[])
+    // 4 Main section of Home page, 1.Banner 2.WellcomeSection 3.Services 4.DentalTips 
     return (
         <div>
+            
             <Banner></Banner>
             <h1 className="text-center my-5">Wellcome to Chittagong Dental Care</h1>
             <p className="container text-center">Located in Nasirabad,Chittagong, the Dental Hospital provides a comprehensive range of 
                 specialized dental care services, all under one roof in a new, state-of-the-art facility. 
                 Our priority is to provide the highest standards of evidence-based dental care.</p>
-
+            
             <WellcomeContainer></WellcomeContainer>
 
             <hr  id="services" className="container my-5" />
