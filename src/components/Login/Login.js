@@ -23,7 +23,8 @@ const Login = () => {
                 <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
                     <input placeholder="Email" {...register("email", {required:true})} />
                     <input type="password" placeholder="Password" {...register("password", { required: true })} />
-                    {errors.email &&  <span className="error">This field is required</span>}
+                    {errors.email &&  <span className="error">Email is required</span>}
+                    {errors.password &&  <span className="error">Password is required</span>}
                     {error && <span className="error">{error}</span>}
                     <input type="submit" />
                 </form>

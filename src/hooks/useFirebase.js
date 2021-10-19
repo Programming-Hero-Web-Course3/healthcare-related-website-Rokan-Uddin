@@ -31,7 +31,6 @@ const useFirebase = () => {
             history.push(redirect_uri);
         })
         .catch(err=>{
-            console.log(err.message);
             setError(err.message);
         })
         .finally(()=>{
@@ -67,12 +66,14 @@ const useFirebase = () => {
     }
     // crete a user using email and password 
     const createUser=(email,password,name,history,redirect_uri)=>{
-        console.log(email,password,name);
         createUserWithEmailAndPassword(auth,email,password)
         .then(result=>{
             setUser(result.user);
             updateUser(name,history,redirect_uri);
         })
+        .catch((err=>{
+            setError(err.message)
+        }))
 
     }
     return {

@@ -4,7 +4,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './Register.css';
 const Register = () => {
-    const {createUser,signInUsingGoogle}= useAuth();
+    const {createUser,signInUsingGoogle,error}= useAuth();
     const location = useLocation();
     const history = useHistory()
     const redirect_uri=  location.state?.from || '/home';
@@ -24,10 +24,12 @@ const Register = () => {
                 <div className="container d-flex justify-content-center align-items-center mt-5">
                 <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
                     <input placeholder="Name" {...register("name", {required:true})} />
+                    {errors.name &&  <span className="error">Name is required</span>}
                     <input placeholder="Email" {...register("email", {required:true})} />
-                    <input placeholder="Password" {...register("password", { required: true })} />
-                    {errors.email &&  <span className="error">This field is required</span>}
-                    
+                    {errors.email &&  <span className="error">Email is required</span>}
+                    <input type="password" placeholder="Password" {...register("password", { required: true })} />
+                    {errors.password &&  <span className="error">Password is required</span>}
+                    {error && !errors.name && !errors.email && !errors.password && <span className="error">{error}</span>}
                     <input className="submit-btn" type="submit" />
                 </form>
 

@@ -34,7 +34,7 @@
 /* responsive for small device  */
 @media only screen and (max-width: 768px) {
 	.service {
-		height: 450px;
+		height: 470px;
 	}
 	.details-btn {
 		margin-bottom: 15px;

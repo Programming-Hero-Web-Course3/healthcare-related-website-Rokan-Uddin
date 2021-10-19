@@ -12,7 +12,7 @@ const wellcomeData=[
         id:2,
         name:"REQUEST AN APPOINTMENT",
         headline:"We are happy to assist you",
-        description:"Here at the Dubai Dental Hospital, we ensure that you have a positive experience with a high level of service.",
+        description:"Here at the Chittagong Dental Hospital, we ensure that you have a positive experience with a high level of service.",
         url:"https://dubaidentalhospital.ae/Files/Uploads/Home/landing-2.jpg"
     },
     {
