@@ -4,6 +4,7 @@ import DentalTips from '../DentalTips/DentalTips';
 import Service from '../Service/Service';
 import WellcomeContainer from '../WellcomeContainer/WellcomeContainer';
 const Home = () => {
+    // fetch data using useEffect and assing to services variable 
     const [services,setServices]=useState([]);
     useEffect(()=>{
         fetch('data.json')
@@ -19,17 +20,19 @@ const Home = () => {
             <p className="container text-center">Located in Nasirabad,Chittagong, the Dental Hospital provides a comprehensive range of 
                 specialized dental care services, all under one roof in a new, state-of-the-art facility. 
                 Our priority is to provide the highest standards of evidence-based dental care.</p>
+
             <WellcomeContainer></WellcomeContainer>
+
             <hr className="container mt-5" />
             <h1 id="services" className="text-center my-5">Our Services</h1>
             <div className="container mb-5">
                 <div className="row g-4">
-                {
-                services.map((service)=><Service
-                    service={service}
-                    ></Service>
-                )
-            }
+                    {
+                    services.map((service)=><Service
+                        service={service}
+                        ></Service>
+                    )
+                    }
                 </div>
             </div>
             

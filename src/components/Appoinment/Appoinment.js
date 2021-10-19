@@ -3,10 +3,11 @@ import { Button, Col, Form, Row } from 'react-bootstrap';
 
 const Appoinment = () => {
     const handleSubmit = (e) =>{
+        // stop default behavior of form submit to prevent page loading
         e.preventDefault();
     }
     return (
-        <div className="container">
+        <div className="container mb-5">
             <h1 className="my-5" >Request an Appointment</h1>
             <hr />
             <h5>Please use the form below to request a dental appointment. We will contact you soon to confirm the availability.</h5>

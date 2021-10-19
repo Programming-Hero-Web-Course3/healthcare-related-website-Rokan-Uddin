@@ -24,12 +24,7 @@ const wellcomeData=[
     }
 ]
 const WellcomeContainer = () => {
-    // const {wellcomeData,setWellcomeData}=useState([]);
-    // useEffect(()=>{
-    //     fetch('wellcome.json')
-    //     .then(res=>res.json())
-    //     .then(data=>setWellcomeData(data))
-    // },[])
+    // used custom data to use in Wellcome component
     return (
         <div className="container">
             <div className="row g-4">

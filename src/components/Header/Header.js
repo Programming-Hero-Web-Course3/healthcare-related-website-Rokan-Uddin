@@ -6,6 +6,7 @@ import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
+    // get user and logout using hooks
     const {user,logOut}= useAuth();
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
@@ -19,6 +20,7 @@ const Header = () => {
             <Nav.Link as={HashLink} to="/doctors">Doctors</Nav.Link>
             <Nav.Link as={Link} to="/appoinment">Appoinment</Nav.Link>
             </Nav>
+            {/* if user's email available, Logout button displayed otherwise Sign-In button  */}
             <Nav>
             {
                 user.email ? 

@@ -8,7 +8,7 @@ const useFirebase = () => {
     const [user,setUser]= useState({});
     const [isLoading,setIsLoading]= useState(true);
     const auth = getAuth();
-
+    // login,register using google account 
     const signInUsingGoogle= (history,redirect_uri) => {
         setIsLoading(true)
         const googleProvider = new GoogleAuthProvider();
@@ -21,6 +21,7 @@ const useFirebase = () => {
             setIsLoading(false)}
         )
     }
+    // sign in using email and password,then redirect to target url 
     const signInUsingEmailPassword= (email,password,history,redirect_uri)=>{
         setIsLoading(true)
         signInWithEmailAndPassword(auth,email,password)
@@ -50,19 +51,22 @@ const useFirebase = () => {
         .then(()=>{})
         .finally(()=>setIsLoading(false))
     }
-    const updateUser=(name)=>{
-        updateProfile(auth.currentUser,{displayName:{name}})
+    // update User info after registration complete 
+    const updateUser=(name,history,redirect_uri)=>{
+        setIsLoading(true)
+        updateProfile(auth.currentUser,{displayName:name})
         .then(res=>{
-            console.log(res.user)
+            setIsLoading(false);
+            history.push(redirect_uri);
         })
     }
-    const createUser=(email,password,name)=>{
+    // crete a user using email and password 
+    const createUser=(email,password,name,history,redirect_uri)=>{
+        console.log(email,password,name);
         createUserWithEmailAndPassword(auth,email,password)
         .then(result=>{
-            
-        })
-        .finally(()=>{
-            // updateUser(name);
+            setUser(result.user);
+            updateUser(name,history,redirect_uri);
         })
 
     }

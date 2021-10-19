@@ -18,34 +18,34 @@ function App() {
     <div className="App">
       <AuthProvider>
       <Router>
-        <Header></Header>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
-          <PrivateRoute path="/appoinment">
-            <Appoinment></Appoinment>
-          </PrivateRoute>
-          <PrivateRoute path="/doctors">
-            <Doctors></Doctors>
-          </PrivateRoute>
-          <PrivateRoute path="/service/:serviceID">
-            <ServiceDetails></ServiceDetails>
-          </PrivateRoute>
-          <Route path="/login">
-            <Login></Login>
-            </Route>
-            <Route path="/register">
-              <Register></Register>
+          <Header></Header>
+          <Switch>
+              <Route exact path="/">
+                <Home></Home>
               </Route>
-          <Route path="*">
-            <NotFound></NotFound>
-          </Route>
-        </Switch>
-        <Footer></Footer>
+              <Route path="/home">
+                <Home></Home>
+              </Route>
+              <PrivateRoute path="/appoinment">
+                <Appoinment></Appoinment>
+              </PrivateRoute>
+              <PrivateRoute path="/doctors">
+                <Doctors></Doctors>
+              </PrivateRoute>
+              <PrivateRoute path="/service/:serviceID">
+                <ServiceDetails></ServiceDetails>
+              </PrivateRoute>
+              <Route path="/login">
+                <Login></Login>
+              </Route>
+              <Route path="/register">
+                  <Register></Register>
+              </Route>
+              <Route path="*">
+                <NotFound></NotFound>
+              </Route>
+          </Switch>
+          <Footer></Footer>
       </Router>
       </AuthProvider>
     </div>

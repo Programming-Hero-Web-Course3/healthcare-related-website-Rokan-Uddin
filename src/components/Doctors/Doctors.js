@@ -25,6 +25,7 @@ const doctors=[
 ]
 
 const Doctors = () => {
+    // custom data used for doctors information 
     return (
         <div id="doctors" className="container my-5">
             <h1 className="text-center">Our Doctors</h1>

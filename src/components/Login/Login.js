@@ -12,11 +12,12 @@ const Login = () => {
     const onSubmit = data => {
         signInUsingEmailPassword(data.email,data.password,history,redirect_uri);
     };
-    const handleGoogleSignIn=() =>{
+    // send history,redirect_uri to signInUsingGoogle such that redirect to the target page after successfully login
+     const handleGoogleSignIn=() =>{
         signInUsingGoogle(history,redirect_uri);
     }
     return (
-        <div>
+        <div className="mb-5">
               <div className="container d-flex justify-content-center align-items-center mt-5">
                 <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
                     <input placeholder="Email" {...register("email", {required:true})} />
@@ -30,7 +31,7 @@ const Login = () => {
                 <h2>Please Login</h2>
                 <p>New User?</p>
                 <Link to='/register'>Register</Link>
-                <div>--------or-------</div>
+                <div>-----------------or--------------</div>
                 <button onClick={handleGoogleSignIn}  className="login-btn" ><i className="fab fa-google text-success"></i> Sign in with Google</button>
             </div>
         </div>
